@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="demo" ng-controller="RootController as rc">
+<head>
+	<title>Markdown View Demo</title>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="../bower_components/highlightjs/styles/default.css" />
+	<link rel="stylesheet" href="../bower_components/codemirror/lib/codemirror.css" />
+	<!-- endbower -->
+
+	<!-- <link rel="stylesheet" href="dist/styles/highlightjs/default.css"> -->
+	<link rel="stylesheet" ng-href="bower_components/highlightjs/styles/{{rc.hljsStyle}}.css">
+	<!-- If no mode is set to emojify  -->
+	<link rel="stylesheet" href="bower_components/emojify.js/dist/css/basic/emojify.css">
+	<!-- If data-uri mode is set to emojify  (THE FILE IS BIG)-->
+	<link rel="stylesheet" href="bower_components/emojify.js/dist/css/data-uri/emojify-emoticons.css">
+	<link rel="stylesheet" href="bower_components/emojify.js/dist/css/data-uri/emojify.css">
+	<!-- If sprite mode is set to emojify-->
+	<!-- <link rel="stylesheet" href="bower_components/emojify.js/dist/css/sprites/emojify-emoticons.css"> -->
+	<!-- <link rel="stylesheet" href="bower_components/emojify.js/dist/css/sprites/emojify.css"> -->
+
+	<!-- THE RELATED -->
+	<link rel="stylesheet" type="text/css" href="bower_components/codemirror/theme/base16-light.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script>
+	var ngApp = 'demo';
+	</script>
+</head>
+<body ng-controller="DemoController as dc">
+	<!-- <script src="bower_components/angular/angular.js"></script> -->
+
+	<!-- DemoController: {{mdText}} -->
+	<div class='view left'>
+		<h2>Editor</h2>
+		<ui-codemirror ng-model="fromCodemirror" ui-codemirror-opts="dc.editorOptions"></ui-codemirror>
+	</div>
+	<div class='view right'>
+		<h2>Preview</h2>
+		<md-view mdtext="fromCodemirror" import="/data/README.md"></md-view>
+	</div>
+
+ 	<!-- bower:js -->
+ 	<script src="../bower_components/angular/angular.js"></script>
+ 	<script src="../bower_components/markdown-it/dist/markdown-it.js"></script>
+ 	<script src="../bower_components/markdown-it-footnote/dist/markdown-it-footnote.js"></script>
+ 	<script src="../bower_components/highlightjs/highlight.pack.js"></script>
+ 	<script src="../bower_components/emojify.js/dist/js/emojify.js"></script>
+ 	<script src="../bower_components/codemirror/lib/codemirror.js"></script>
+ 	<script src="../bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+ 	<script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+ 	<!-- endbower -->
+	<script src="dist/ng-md-view.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

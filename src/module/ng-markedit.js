@@ -7,9 +7,9 @@
 		return;
 	}
 
-	var app = angular.module('ng-md-review', []);
+	var app = angular.module('ng-markedit', []);
 
-	app.provider('MdViewConfig', function () {
+	app.provider('markeditConf', function () {
 		this.hljsConfig = {
 			style: 'default',
 			highlight: true
@@ -51,11 +51,11 @@
 
 	});
 
-	app.service('EmojifyService', ['MdViewConfig', function (MdViewConfig) {
+	app.service('EmojifyService', ['markeditConf', function (markeditConf) {
 		// console.log('EmojifyService');
 		var self = {
 			emojify: function (text) {
-				emojify.setConfig(MdViewConfig.emojifyConfig);
+				emojify.setConfig(markeditConf.emojifyConfig);
 
 				text = emojify.replace(text);
 				// console.log('EmojifyService result', text);
@@ -65,14 +65,14 @@
 		return self;
 	}]);
 
-	app.directive('mdView', ['$templateRequest', 'MdViewConfig', 'EmojifyService', 'MdRenderService', function ($templateRequest, MdViewConfig, EmojifyService, MdRenderService) {
+	app.directive('markedit', ['$templateRequest', 'markeditConf', 'EmojifyService', 'MdRenderService', function ($templateRequest, markeditConf, EmojifyService, MdRenderService) {
 		return {
 			scope: {
 				mdtext: '=',
 				import: '@'
 			},
 			link: function ($scope, el, attr) {
-				console.log('md-view', $scope, el, attr);
+				// console.log('ng-markedit', $scope, el, attr);
 
 				var doIt = function (text) {
 					// console.log(text);
@@ -84,7 +84,7 @@
 
 					//Fix: Since the markdown parser does not attach highlighter's class, we need 
 					// to do it manually
-					if (MdViewConfig.mdConfig.highlight) {
+					if (markeditConf.mdConfig.highlight) {
 						el.find('pre').addClass('hljs');
 					}
 				};
@@ -109,7 +109,7 @@
 		};
 	}]);
 
-	app.service('MdRenderService', ['MdViewConfig', function (MdViewConfig) {
+	app.service('MdRenderService', ['markeditConf', function (markeditConf) {
 		// console.log('EmojifyService');
 		var languageOverrides = {
 				js: 'javascript', // allow js as javascript as well
@@ -129,15 +129,15 @@
 			mdObj;
 
 		// If we set we want highlight, use our method
-		if (MdViewConfig.mdConfig.highlight === true) {
-			MdViewConfig.mdConfig.highlight = highlightFn;
+		if (markeditConf.mdConfig.highlight === true) {
+			markeditConf.mdConfig.highlight = highlightFn;
 		}
 		// If a method is not set, do not use highlight at all;
-		if (typeof MdViewConfig.mdConfig.highlight !== 'function') {
-			delete MdViewConfig.mdConfig.highlight;
+		if (typeof markeditConf.mdConfig.highlight !== 'function') {
+			delete markeditConf.mdConfig.highlight;
 		}
 
-		mdObj = markdownit(MdViewConfig.mdConfig).use(markdownitFootnote);
+		mdObj = markdownit(markeditConf.mdConfig).use(markdownitFootnote);
 
 		var self = {
 			render: function (text) {

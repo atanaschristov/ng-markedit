@@ -1,12 +1,12 @@
 {
-  "name": "ng-markdown-review",
+  "name": "ng-markedit",
   "version": "0.0.1",
   "authors": [
     "athr <atanaschristov@gmail.com>"
   ],
-  "description": "markdown parser, supporting code highlighter and emoji",
+  "description": "angular markdown parser, based on markedown-it, supporting code highlighter and emoji",
   "main": [
-    "dist/ng-md-view.js",
+    "dist/ng-markedit.js",
     "bower_components/codemirror/theme/base16-light.css",
     "bower_components/emojify.js/dist/css/basic/emojify.css"
   ],
@@ -16,6 +16,7 @@
   "keywords": [
     "angular",
     "markdown",
+    "markdown-it",
     "parser",
     "view",
     "review",
@@ -24,7 +25,7 @@
     "directive"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/atanaschristov/ng-markedit.git",
   "ignore": [
     "**/.*",
     "src",

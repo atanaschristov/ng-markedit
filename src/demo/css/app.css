@@ -27,13 +27,14 @@ h2 {
 	margin: 20px auto;	
 }
 
-.CodeMirror, md-view {
-	height: calc(100% - 70px);
+.CodeMirror, markedit {
+	height: calc(100% - 72px);
 	width: 95%;
 	margin: 0 auto;
+	border: 2px solid grey;
 }
 
-md-view {
+markedit {
 	padding: 0 10px;
 	background-color: #f5f5f5;
 	display: block;

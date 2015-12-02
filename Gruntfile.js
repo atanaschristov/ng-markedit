@@ -98,12 +98,12 @@ module.exports = function (grunt) {
 		concat: {
 			dist: {
 				files: {
-					'<%= config.dist %>/ng-md-view.js': [
+					'<%= config.dist %>/ng-markedit.js': [
 						// 'bower_components/emojify.js/dist/js/emojify.min.js',
 						// 'bower_components/markdown-it/dist/markdown-it.min.js',
 						// 'bower_components/markdown-it-footnote/dist/markdown-it-footnote.min.js',
 						// 'bower_components/highlightjs/highlight.pack.min.js',
-						'<%= config.module %>/ng-md-viewer.js',
+						'<%= config.module %>/ng-markedit.js',
 					]
 				},
 			},
@@ -111,7 +111,7 @@ module.exports = function (grunt) {
 		uglify: {
 			dist: {
 				files: {
-					'<%= config.dist %>/ng-md-view.min.js': ['<%= config.dist %>/ng-md-view.js']
+					'<%= config.dist %>/ng-markedit.min.js': ['<%= config.dist %>/ng-markedit.js']
 				}
 			}
 		},
@@ -175,7 +175,7 @@ module.exports = function (grunt) {
 		// Automatically inject Bower components into the HTML file
 		wiredep: {
 			demo: {
-				ignorePath: /^\/|\.\.\//,
+				ignorePath: /^\/|\.\.\/|\.\.\/\.\.\//,
 				devDependencies: true,
 				src: ['<%= config.app %>/index.html']
 			},

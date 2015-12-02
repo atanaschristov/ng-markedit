@@ -7,18 +7,18 @@
 	}
 	// var app = angular.module(ngApp, ['ui.router', 'ngSanitize', 'ui.codemirror', 'config', 'angular-local-json-generator']);
 
-	var app = angular.module(ngApp, ['ng-md-review', 'ui.codemirror']);
+	var app = angular.module(ngApp, ['ng-markedit', 'ui.codemirror']);
 
-	app.config(function (MdViewConfigProvider) {
+	app.config(function (markeditConfProvider) {
 		var mdConf = {
 			highlight: true,
 			linkify: true,
 		};
-		MdViewConfigProvider.setMarkdownItConfig(mdConf);
-		MdViewConfigProvider.setHighlighterConfig({
+		markeditConfProvider.setMarkdownItConfig(mdConf);
+		markeditConfProvider.setHighlighterConfig({
 			style: 'default'
 		});
-		MdViewConfigProvider.setEmojifyConfig({
+		markeditConfProvider.setEmojifyConfig({
 			'img_dir': 'images/sprites',
 			// mode: 'sprite',
 			mode: 'data-uri',
@@ -26,15 +26,15 @@
 		});
 	});
 
-	var RootController = function ($scope, MdViewConfig) {
-		console.log('RootController', $scope, MdViewConfig);
+	var RootController = function ($scope, markeditConf) {
+		// console.log('RootController', $scope, markeditConf);
 		var self = this;
 		self.hljsStyle = 'ir_black';
-		if (MdViewConfig.hljsConfig.style) {
-			self.hljsStyle = MdViewConfig.hljsConfig.style
+		if (markeditConf.hljsConfig.style) {
+			self.hljsStyle = markeditConf.hljsConfig.style
 		}
 	};
-	app.controller('RootController', ['$scope', 'MdViewConfig', RootController]);
+	app.controller('RootController', ['$scope', 'markeditConf', RootController]);
 
 	var DemoController = function ($scope) {
 		// console.log('DemoController', $scope);

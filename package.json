@@ -1,19 +1,20 @@
 {
-  "name": "ng-markdown-review",
+  "name": "ng-markedit",
   "version": "0.0.1",
-  "description": "markdown parser, supporting code highlighter and emoji",
-  "main": "index.js",
+  "description": "Angular markdown parser, based on markedown-it, supporting code highlighter and emoji",
+  "main": "src/demo/app.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "start": "grunt",
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/atanaschristov/ng-markedit.git"
   },
-  "author": "",
+  "author": "athr <atanaschristov@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

@@ -11,6 +11,12 @@ var app = angular.module(ngApp, ['ng-md-review', 'ui.codemirror']);
 
 2. Configuration:
 
+To use a codemirror theme include the chosen theme css in index.html. Example: 
+```html
+<link rel="stylesheet" type="text/css" href="bower_components/codemirror/theme/base16-light.css">
+```
+Check all the themes in **```bower_components/codemirror/theme```**
+
 ```javascript
 app.config(function (MdViewConfigProvider) {
     var mdConf = {

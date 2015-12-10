@@ -6,9 +6,7 @@
   ],
   "description": "angular markdown parser, based on markedown-it, supporting code highlighter and emoji",
   "main": [
-    "dist/ng-markedit.js",
-    "bower_components/codemirror/theme/base16-light.css",
-    "bower_components/emojify.js/dist/css/basic/emojify.css"
+    "dist/ng-markedit.js"
   ],
   "moduleType": [
     "globals"
@@ -39,7 +37,7 @@
     "markdown-it": "^5.0.2",
     "markdown-it-footnote": "^2.0.0",
     "highlightjs": "^8.9.1",
-    "emojify.js": "^1.1.0"
+    "emojify.js": "git@github.com:atanaschristov/emojify.js.git#6b12b82"
   },
   "devDependencies": {
     "angular-ui-codemirror": "~0.3.0",
